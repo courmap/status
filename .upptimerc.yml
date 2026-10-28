@@ -1,31 +1,70 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Courmap status page. Docs: https://upptime.js.org/docs/configuration
+owner: courmap
+repo: status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: Docs site
+    url: https://courmap.com/
+    expectedStatusCodes:
+      - 200
+  - name: HTTP API
+    url: https://api.courmap.com/v1/meta
+    expectedStatusCodes:
+      - 200
+    __dangerous__body_down_if_text_missing: data_version
+  - name: Remote data
+    url: https://data.courmap.com/v1/meta.json
+    expectedStatusCodes:
+      - 200
+    __dangerous__body_down_if_text_missing: data_version
+  - name: Weekly data release (used by the Sonarr proxy)
+    url: https://github.com/courmap/courmap/releases/latest/download/meta.json
+    # The download URL redirects to a signed asset URL; the default limit is 3 hops.
+    maxRedirects: 5
+    expectedStatusCodes:
+      - 200
+    __dangerous__body_down_if_text_missing: data_version
+
+assignees:
+  - xwolvos
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.courmap.com
+  name: Courmap status
+  logoUrl: https://raw.githubusercontent.com/courmap/courmap/master/assets/logo.png
+  favicon: https://raw.githubusercontent.com/courmap/courmap/master/assets/logo.png
+  theme: dark
+  introTitle: "Live status for the **Courmap** docs, API and data."
+  introMessage: "If something here is down, the Sonarr proxy keeps working on the last data it downloaded, so your library keeps matching until service returns."
   navbar:
-    - title: Status
-      href: /
+    - title: Courmap
+      href: https://courmap.com/
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+  # Brand colors from courmap's site/src/styles/brand.css: ink #16181d, paper #f4f1ea, vermilion #e04e39.
+  # Vermilion is the brand accent, so outages use amber instead, as on the docs site.
+  css: |
+    :root {
+      --body-background-color: #16181d;
+      --body-text-color: #f4f1ea;
+      --card-background-color: #23262c;
+      --nav-background-color: #23262c;
+      --nav-border-bottom-color: #3a3d44;
+      --nav-current-border-bottom-color: #e04e39;
+      --card-border-color: #3a3d44;
+      --down-border-left-color: #f0a04b;
+      --down-background-color: #3a2a12;
+      --degraded-border-left-color: #c9c4b8;
+      --up-border-left-color: #5bbcc1;
+      --tag-color: #16181d;
+      --tag-up-background-color: #5bbcc1;
+      --tag-down-background-color: #f0a04b;
+      --tag-degraded-background-color: #c9c4b8;
+      --change-background-color: #f0a04b;
+      --error-button-border-color: #e04e39;
+      --error-button-background-color: #e04e39;
+      --error-button-color: #16181d;
+      --submit-button-border-color: #e04e39;
+      --submit-button-background-color: #e04e39;
+      --submit-button-color: #16181d;
+    }
