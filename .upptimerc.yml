@@ -31,8 +31,8 @@ assignees:
 status-website:
   cname: status.courmap.com
   name: Courmap status
-  logoUrl: https://raw.githubusercontent.com/courmap/courmap/master/assets/logo.png
-  favicon: https://raw.githubusercontent.com/courmap/courmap/master/assets/logo.png
+  logoUrl: https://raw.githubusercontent.com/courmap/courmap/main/assets/logo.png
+  favicon: https://raw.githubusercontent.com/courmap/courmap/main/assets/logo.png
   theme: dark
   introTitle: "Live status for the **Courmap** docs, API and data."
   introMessage: "If something here is down, the Sonarr proxy keeps working on the last data it downloaded, so your library keeps matching until service returns."
