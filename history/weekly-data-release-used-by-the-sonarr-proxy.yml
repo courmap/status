@@ -1,7 +1,7 @@
 url: https://github.com/courmap/courmap/releases/latest/download/meta.json
-status: down
-code: 504
-responseTime: 198
-lastUpdated: 2026-11-09T05:41:56.524Z
+status: up
+code: 200
+responseTime: 11388
+lastUpdated: 2026-11-09T06:08:15.512Z
 startTime: 2026-10-28T18:21:59.135Z
 generator: Upptime <https://github.com/upptime/upptime>
