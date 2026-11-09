@@ -58,19 +58,20 @@
     "url": "https://github.com/courmap/courmap/releases/latest/download/meta.json",
     "icon": "https://icons.duckduckgo.com/ip3/github.com.ico",
     "slug": "weekly-data-release-used-by-the-sonarr-proxy",
-    "status": "up",
-    "uptime": "99.27%",
-    "uptimeDay": "91.70%",
+    "status": "down",
+    "uptime": "99.28%",
+    "uptimeDay": "91.69%",
     "uptimeWeek": "98.81%",
-    "uptimeMonth": "99.27%",
-    "uptimeYear": "99.27%",
-    "time": 1613,
-    "timeDay": 4705,
-    "timeWeek": 2338,
-    "timeMonth": 1613,
-    "timeYear": 1613,
+    "uptimeMonth": "99.28%",
+    "uptimeYear": "99.28%",
+    "time": 1539,
+    "timeDay": 3954,
+    "timeWeek": 2160,
+    "timeMonth": 1539,
+    "timeYear": 1539,
     "dailyMinutesDown": {
-      "2026-11-08": 120
+      "2026-11-08": 120,
+      "2026-11-09": 0
     }
   }
 ]
